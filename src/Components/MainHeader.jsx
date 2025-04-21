@@ -15,7 +15,7 @@ const MainHeader = () => {
           <img src={logo} className="h-[38px]" alt="Logo" />
           </div>
       
-      <div className="max-xl:hidden xl:flex w-[650px] min-w-[200px] h-[49.2px] border-2 border-blue-500 rounded overflow-hidden text-sans-serif text-[14px] relative">
+      <div className="max-xl:hidden  xl:flex w-[650px] min-w-[200px] h-[49.2px] border-2 border-blue-500 rounded overflow-hidden text-sans-serif text-[14px] relative">
         <input
           type="text"
           placeholder="Search for Products..."
@@ -24,7 +24,7 @@ const MainHeader = () => {
         {/* <select className="border-l border-gray-300 px-2 text-[18px] text-black focus:outline-none " onClick={() => setFlipped(!flipped)}> */}
       
         <select
-        className="appearance-none border border-gray-300 px-4 py-2 pr-10 text-[14px] font-roboto text-black focus:outline-none rounded duration-100 ease-in transition-all font-normal  "
+        className="appearance-none cursor-pointer border border-gray-300 px-4 py-2 pr-10 text-[14px] font-roboto text-black focus:outline-none rounded duration-100 ease-in transition-all font-normal  "
         onClick={() => setFlipped(!flipped)}
         onBlur={() => setFlipped(false)} // Reset on close
       >

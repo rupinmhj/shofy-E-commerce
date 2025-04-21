@@ -12,9 +12,8 @@ const Footer = () => {
   return (
     <footer className="overflow-hidden bg-white py-16 px-4 md:pl-8 pl-10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-6">
+        <div className='flex mt-10 '>
+        <div className=" space-y-6  w-[440px]  mr-[120px]">
             <div className="flex items-center space-x-2">
               <img src={logo} alt="" />
             </div>
@@ -36,9 +35,12 @@ const Footer = () => {
               </a>
             </div>
           </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8  pl-10 ">
+          {/* Company Info */}
+          
 
           {/* My Account */}
-          <div>
+          <div className="">
             <h3 className="text-[20px] font-bold mb-3">My Account</h3>
             <ul className="space-y-2 text-[14px] font-roboto list-disc pl-4">
               <li><a href="#" className="text-gray-800 leading-[26px] font-normal hover:text-gray-900">Track Orders</a></li>
@@ -81,6 +83,8 @@ const Footer = () => {
 </div>
 
         </div>
+        </div>
+        
 
         {/* Bottom Section */}
         <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

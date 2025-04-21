@@ -4,9 +4,9 @@ import { Navigation, Pagination ,Autoplay} from 'swiper/modules';
 import { HiArrowLeftCircle, HiArrowRightCircle } from 'react-icons/hi2';
 import { GoArrowRight } from "react-icons/go";
 import blog1 from "../assets/blog-1.jpg"
-import blog2 from "../assets/blog-2jpg.jpg"
+import blog2 from "../assets/blog-2.jpg"
 import blog3 from "../assets/blog-3.jpg"
-import blog4 from "../assets/blog-2jpg.jpg"
+import blog4 from "../assets/blog-2.jpg"
 import { GoTag } from "react-icons/go";
 import 'swiper/css';
 import 'swiper/css/navigation';

@@ -1,13 +1,13 @@
 import React from "react";
 
-
+import truck from "../assets/truck.svg"
 const Heading = () => {
   return (
     <div className="overflow-hidden bg-custBlack border border-custBlack font-roboto leading-[26px]  md:px-14 max-md:hidden text-white text-sm h-[33.8px] flex justify-between items-center xl:px-28">
       {/* Left Side */}
       <div className="flex items-center gap-2 pl-2">
         <span role="img" aria-label="truck">
-          🚚
+          <img src={truck} alt="" />
         </span>
         <p className="font-normal text-[13px]">FREE Express Shipping On Orders $70+</p>
       </div>

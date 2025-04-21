@@ -18,6 +18,7 @@ import FixedNav from './Components/FixedNav';
 import Instagram from './Components/Instagram';
 import Subscribe from './Components/Subscribe';
 import Footer from './Components/Footer';
+import ScrollToUp from './Components/ScrollToUp';
 
 function App() {
   const [showFixedNav, setShowFixedNav] = useState(false);
@@ -73,6 +74,7 @@ function App() {
       <Instagram />
       <Subscribe />
       <Footer />
+      <ScrollToUp/>
     </>
   );
 }

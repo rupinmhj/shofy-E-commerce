@@ -47,6 +47,14 @@ export default {
             opacity: '1',
             transform: 'translateY(0) scale(1)', // End at normal position
           },
+          dash: {
+            to: {
+              strokeDashoffset: '0',
+            },
+          },
+        },
+        animation: {
+          'dash-move': 'dash 4s linear infinite',
         },
           fadeInUp: {
             '0%': {
