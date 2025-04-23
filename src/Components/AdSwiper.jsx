@@ -12,17 +12,17 @@ import banner3 from "../assets/banner-slider-3.png";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-    },
-  }),
-};
+// const fadeIn = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: (i) => ({
+//     opacity: 1,
+//     y: 0,
+//     transition: {
+//       delay: i * 0.2,
+//       duration: 0.6,
+//     },
+//   }),
+// };
 
 const slideData = [
   {

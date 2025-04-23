@@ -20,6 +20,8 @@ import Subscribe from './Components/Subscribe';
 import Footer from './Components/Footer';
 import ScrollToUp from './Components/ScrollToUp';
 
+import ProductSection from './Components/ProductSection'
+
 function App() {
   const [showFixedNav, setShowFixedNav] = useState(false);
   const headerRef = useRef(null);
@@ -43,13 +45,21 @@ function App() {
     };
   }, []);
 
+  const [showCategory, setShowCategory] = useState(false);
+  
+
+  const handleShowCategory = (showCategory) => {
+    setShowCategory(showCategory);
+  };
+  
+
   return (
     <>
       {/* Header section that we're watching */}
       <div ref={headerRef}>
         <Heading />
-        <MainHeader />
-        <MainNavigation />
+        <MainHeader onCategorySelect={handleShowCategory}/>
+        <MainNavigation onCategorySelect={handleShowCategory} />
       </div>
 
       {/* Fixed navigation that appears when scrolling */}
@@ -58,23 +68,32 @@ function App() {
           showFixedNav ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <FixedNav />
+        <FixedNav onCategorySelect={handleShowCategory}/>
       </div>
+      {console.log(showCategory)}
 
       {/* Main content sections */}
-      <Swiper />
-      <Product />
-      <TrendingProducts />
-      <DealDay />
-      <Electronics />
-      <AdSwiper />
-      <NewArrival />
-      <DFS />
-      <LatestNews />
-      <Instagram />
-      <Subscribe />
-      <Footer />
-      <ScrollToUp/>
+      {showCategory ? (
+  <ProductSection />
+) : (
+  <>
+    <Swiper />
+    <Product />
+    <TrendingProducts />
+    <DealDay />
+    <Electronics />
+    <AdSwiper />
+    <NewArrival />
+    <DFS />
+    <LatestNews />
+    <Instagram />
+    <Subscribe />
+    {/* <ProductSection /> */}
+  </>
+)}
+<Footer />
+<ScrollToUp />
+
     </>
   );
 }

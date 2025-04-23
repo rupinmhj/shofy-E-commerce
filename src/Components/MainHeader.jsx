@@ -6,13 +6,25 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaRegHeart } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 
-const MainHeader = () => {
+const MainHeader = ({onCategorySelect}) => {
+    const [feed,setFeed]=useState(false);
   const [flipped, setFlipped] = useState(false);
+   const show=true;
+  const handleClick=(e)=>{
+    onCategorySelect(feed);
+    console.log("mainheader")
+  }
+  const handleCategoryClick = (e) => {
+    onCategorySelect(true);
+    
+    console.log(onCategorySelect);
+    console.log("cliced on menu");
+  };
   return (
     <div className='overflow-hidden z-10 bg-white font-jost h-[110px] max-lg:h-[65px] flex  items-center max-lg:mx-2 '>
         <div className="flex h-[49.2px]   justify-between items-center w-full px-4 py-6 sm:px-6 md:px-12 lg:px-16 xl:px-32 sm:gap-8 md:gap-16 lg:gap-18 xl:gap-32">
           <div>
-          <img src={logo} className="h-[38px]" alt="Logo" />
+          <img src={logo} className="h-[38px]" alt="Logo"  onClick={handleClick}/>
           </div>
       
       <div className="max-xl:hidden  xl:flex w-[650px] min-w-[200px] h-[49.2px] border-2 border-blue-500 rounded overflow-hidden text-sans-serif text-[14px] relative">
@@ -27,12 +39,16 @@ const MainHeader = () => {
         className="appearance-none cursor-pointer border border-gray-300 px-4 py-2 pr-10 text-[14px] font-roboto text-black focus:outline-none rounded duration-100 ease-in transition-all font-normal  "
         onClick={() => setFlipped(!flipped)}
         onBlur={() => setFlipped(false)} // Reset on close
+        onChange={(e) => {
+          handleCategoryClick(e.target.value);
+        }}
       >
           <option >Select Category</option>
-          <option>Electronics</option>
-          <option>Fashion</option>
-          <option>Jewellery</option>
+          <option >Electronics</option>
+          <option >Fashion</option>
+          <option >Jewellery</option>
         </select >
+       
       
         
         <svg

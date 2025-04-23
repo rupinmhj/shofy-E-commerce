@@ -10,15 +10,20 @@ import { BiTransfer } from "react-icons/bi";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaRegHeart } from "react-icons/fa";
 import HomeMenu from "./HomeMenu";
-const FixedNav = () => {
+const FixedNav = ({ onCategorySelect }) => {
   const [isHovered, setIsHovered] = useState(false);
+     const [feed,setFeed]=useState(false);
+     const handleClick=(e)=>{
+      onCategorySelect(feed);
+      console.log("mainheader")
+    }
   return (
     <div className=" xl:fle text-[14px] font-medium h-[66px] bg-white border-b shadow-lg shadow-black-500/50">
       <div className="flex justify-between w-full h-16  sm:px-5 md:px-10 lg:px-10 xl:px-32 ">
         <div className="flex ">
           {/* logo */}
           <div>
-            <img src={logo} className="h-[36px] mr-[160px] mt-4" alt="Logo" />
+            <img src={logo} onClick={handleClick} className="h-[36px] mr-[160px] mt-4" alt="Logo" />
           </div>
 
           <div className="flex gap-0 max-lg:hidden  text-center py-5 font-roboto font-normal text-[14px] w-[660px] ">
