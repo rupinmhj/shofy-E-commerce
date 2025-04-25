@@ -25,6 +25,7 @@ import ProductSection from './Components/ProductSection'
 function App() {
   const [showFixedNav, setShowFixedNav] = useState(false);
   const headerRef = useRef(null);
+  const click=(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,7 +55,7 @@ function App() {
   
 
   return (
-    <>
+    <div onClick={()=>{setClick(true)}}>
       {/* Header section that we're watching */}
       <div ref={headerRef}>
         <Heading />
@@ -74,7 +75,7 @@ function App() {
 
       {/* Main content sections */}
       {showCategory ? (
-  <ProductSection />
+  <ProductSection click={click} />
 ) : (
   <>
     <Swiper />
@@ -94,7 +95,7 @@ function App() {
 <Footer />
 <ScrollToUp />
 
-    </>
+    </div>
   );
 }
 

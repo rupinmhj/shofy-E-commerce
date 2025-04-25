@@ -1,10 +1,24 @@
 import React from "react";
 import headphoneWireless from "../assets/headphone-wireless.png";
+import headphoneWireless2 from "../assets/headphonewireless2.png";
+import headphoneWireless3 from "../assets/headphone-wireless3.png";
+
 import headphoneMic from "../assets/headphone-mic.png";
+import headphoneMic2 from "../assets/headphoneMic2.png";
+import headphoneMic3 from "../assets/headphoneMic3.png";
+
 import headphoneGaming from "../assets/headphone-gaming.png";
+import headphoneGaming2 from "../assets/headphoneGaming2.png";
+import headphoneGaming3 from "../assets/headphoneGaming3.png";
+
 import mobilegalaxy from "../assets/mobile-galaxy.png";
+import mobilegalaxy2 from "../assets/mobileGalaxy2.png";
+
 import ipad from "../assets/ipad.png";
 import iphone from "../assets/mobile-iphone.png";
+import iphone2 from "../assets/iphone2.png";
+import iphone3 from "../assets/iphone3.png";
+
 import cpuCooler1 from "../assets/cpu-cooler.png";
 import cpuCooler2 from "../assets/cpu-cooler-2.png";
 import blueMark from "../assets/blue-mark.svg"
@@ -21,7 +35,10 @@ const products = [
     href: "#",
     price: "$48",
     imageSrc: headphoneWireless,
+    imageSrc2: headphoneWireless2, //pink
+    imageSrc3: headphoneWireless3, //blue
     rating: 4,
+    description: "Experience freedom with these wireless headphones, offering clear sound and a long-lasting battery."
   },
   {
     id: 2,
@@ -30,7 +47,10 @@ const products = [
     href: "#",
     price: "$48",
     imageSrc: headphoneMic,
+    imageSrc2: headphoneMic2,
+    imageSrc3: headphoneMic3,
     rating: 4,
+    description: "Perfect for calls and meetings, these headphones come with a built-in mic and noise isolation."
   },
   {
     id: 3,
@@ -39,7 +59,10 @@ const products = [
     href: "#",
     price: "$48",
     imageSrc: headphoneGaming,
+    imageSrc2: headphoneGaming2,
+    imageSrc3: headphoneGaming3,
     rating: 3,
+    description: "Immersive gaming experience with surround sound and an adjustable mic for communication."
   },
   {
     id: 4,
@@ -48,16 +71,22 @@ const products = [
     href: "",
     price: "$840",
     imageSrc: ipad,
+    imageSrc2: ipad,
+    imageSrc3: ipad,
     rating: 4,
+    description: "Sleek and powerful, the iPad is your all-in-one solution for work, creativity, and entertainment."
   },
   {
     id: 5,
-    product_catagory: "Mobile ",
+    product_catagory: "Mobile",
     name: "Samsung Galaxy",
     href: "#",
     price: "$48",
     imageSrc: mobilegalaxy,
+    imageSrc2: mobilegalaxy2,
+    imageSrc3: mobilegalaxy,
     rating: 4,
+    description: "A stylish and reliable smartphone with a vibrant display and impressive performance."
   },
   {
     id: 6,
@@ -66,7 +95,10 @@ const products = [
     href: "#",
     price: "$48",
     imageSrc: iphone,
+    imageSrc2: iphone2,
+    imageSrc3: iphone3,
     rating: 4,
+    description: "Capture stunning photos and enjoy blazing-fast performance with the iPhone 12 Pro."
   },
   {
     id: 7,
@@ -75,7 +107,10 @@ const products = [
     href: "#",
     price: "$48",
     imageSrc: cpuCooler1,
+    imageSrc2: cpuCooler1,
+    imageSrc3: cpuCooler1,
     rating: 4,
+    description: "Efficient cooling for your CPU with a quiet fan and sleek design from DeepCool."
   },
   {
     id: 8,
@@ -84,9 +119,13 @@ const products = [
     href: "#",
     price: "$90",
     imageSrc: cpuCooler2,
+    imageSrc2: cpuCooler2,
+    imageSrc3: cpuCooler2,
     rating: 4,
-  },
+    description: "Keep your processor cool under pressure with this high-performance Antec air cooler."
+  }
 ];
+
 const TrendingProducts = () => {
   return (
     <div className="overflow-hidden flex xl:mx-28 lg:mx-20 text-center justify-center flex-col mt-20 ">

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FiShoppingCart, FiEye, FiHeart } from "react-icons/fi";
-import lineBelow from "../assets/lineBelow.svg"
-export default function ProductFilter() {
+import lineBelow from "../assets/lineBelow.svg";
+export default function ProductFilter({click}) {
   const [items, setItems] = useState([]);
   const [allItems, setAllItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
-
+  const [previewProduct, setPreviewProduct] = useState(null);
 
   useEffect(() => {
     axios
@@ -27,79 +27,87 @@ export default function ProductFilter() {
       setItems(filtered);
     }
   };
-  
+
+
 
   return (
-    <div className=" lg:mx-28 p-4 font-roboto lg:mt-6 ">
-      <h1 className="text-2xl font-bold mb-6 lg:text-[36px] text-custBlack relative  z-10">All Products</h1>
-      <img src={lineBelow} className="absolute top-[244px] left-28  lg:h-10 hidden 2xl:block" alt="" />
+    <div className=" lg:mx-28 p-4 font-roboto lg:mt-6 " onClick={() => setPreviewProduct(null)} >
+      <h1 className="text-2xl font-bold mb-6 lg:text-[36px] text-custBlack relative  z-10">
+        All Products
+      </h1>
+      <img
+        src={lineBelow}
+        className="absolute top-[244px] left-28  lg:h-10 hidden 2xl:block"
+        alt=""
+      />
 
       {/* Filter Buttons */}
       <div className="flex flex-wrap gap-3 mb-8">
-      <button
-  onClick={() => filterItems("all")}
-  className={`px-4 py-2 rounded text-white ${
-    selectedCategory === "all" ? "bg-custBlack" : "bg-custBlue hover:bg-blue-300"
-  }`}
->
-  All Products
-</button>
+        <button
+          onClick={() => filterItems("all")}
+          className={`px-4 py-2 rounded text-white ${
+            selectedCategory === "all"
+              ? "bg-custBlack"
+              : "bg-custBlue hover:bg-blue-300"
+          }`}
+        >
+          All Products
+        </button>
 
-<button
-  onClick={() => filterItems("men's clothing")}
-  className={`px-4 py-2 rounded text-white ${
-    selectedCategory === "men's clothing"
-      ? "bg-custBlack"
-      : "bg-custBlue hover:bg-blue-300"
-  }`}
->
-  Men's Clothing
-</button>
+        <button
+          onClick={() => filterItems("men's clothing")}
+          className={`px-4 py-2 rounded text-white ${
+            selectedCategory === "men's clothing"
+              ? "bg-custBlack"
+              : "bg-custBlue hover:bg-blue-300"
+          }`}
+        >
+          Men's Clothing
+        </button>
 
-<button
-  onClick={() => filterItems("jewelery")}
-  className={`px-4 py-2 rounded text-white ${
-    selectedCategory === "jewelery"
-      ? "bg-custBlack"
-      : "bg-custBlue hover:bg-blue-300"
-  }`}
->
-  Jewelry
-</button>
+        <button
+          onClick={() => filterItems("jewelery")}
+          className={`px-4 py-2 rounded text-white ${
+            selectedCategory === "jewelery"
+              ? "bg-custBlack"
+              : "bg-custBlue hover:bg-blue-300"
+          }`}
+        >
+          Jewelry
+        </button>
 
-<button
-  onClick={() => filterItems("electronics")}
-  className={`px-4 py-2 rounded text-white ${
-    selectedCategory === "electronics"
-      ? "bg-custBlack"
-      : "bg-custBlue hover:bg-blue-300"
-  }`}
->
-  Electronics
-</button>
+        <button
+          onClick={() => filterItems("electronics")}
+          className={`px-4 py-2 rounded text-white ${
+            selectedCategory === "electronics"
+              ? "bg-custBlack"
+              : "bg-custBlue hover:bg-blue-300"
+          }`}
+        >
+          Electronics
+        </button>
 
-<button
-  onClick={() => filterItems("women's clothing")}
-  className={`px-4 py-2 rounded text-white ${
-    selectedCategory === "women's clothing"
-      ? "bg-custBlack"
-      : "bg-custBlue hover:bg-blue-300"
-  }`}
->
-  Women's Clothing
-</button>
-
+        <button
+          onClick={() => filterItems("women's clothing")}
+          className={`px-4 py-2 rounded text-white ${
+            selectedCategory === "women's clothing"
+              ? "bg-custBlack"
+              : "bg-custBlue hover:bg-blue-300"
+          }`}
+        >
+          Women's Clothing
+        </button>
       </div>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-10 transition-all ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-10 transition-all " onClick={(e)=>e.stopPropagation()}>
         {items.map((product) => (
           <a
             key={product.id}
             href="#"
             className="group border  border-gray-200 flex flex-col justify-start transition-all hover:shadow-lg hover:border-gray-300"
           >
-            <div className="relative">
+            <div className="relative" >
               <img
                 src={product.image}
                 className="aspect-square w-[80%] flex mx-auto my-4 rounded-lg object-cover transition-transform duration-200 transform group-hover:scale-105 hover:opacity-75"
@@ -109,9 +117,13 @@ export default function ProductFilter() {
                 <button className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-blue-600 hover:text-white transition-all">
                   <FiShoppingCart size={18} />
                 </button>
-                <button className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-blue-600 hover:text-white transition-all">
+                <button
+                  onClick={() => setPreviewProduct(product)}
+                  className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-blue-600 hover:text-white transition-all"
+                >
                   <FiEye size={18} />
                 </button>
+
                 <button className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-blue-600 hover:text-white transition-all">
                   <FiHeart size={18} />
                 </button>
@@ -148,6 +160,25 @@ export default function ProductFilter() {
           </a>
         ))}
       </div>
+      {previewProduct && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 pt-20" onClick={(e)=>e.stopPropagation}>
+          <div className="bg-white p-6 rounded-lg max-w-md w-full relative">
+           
+            <img
+              src={previewProduct.image}
+              alt={previewProduct.title}
+              className="w-full h-64 object-contain mb-4"
+            />
+            <h2 className="text-xl font-bold">{previewProduct.title}</h2>
+            <p className="text-sm text-gray-500 my-2">
+              {previewProduct.description}
+            </p>
+            <p className="text-blue-600 font-bold text-lg">
+              ${previewProduct.price}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
