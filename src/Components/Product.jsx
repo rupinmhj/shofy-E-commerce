@@ -46,7 +46,7 @@ const Product = () => {
     <div className="overflow-hidden flex mx-30 items-center justify-center flex-col w-full  ">
       <div className=" w-[90%] px-4 sm:px-6 lg:px-8  flex justify-center">
         <div className=" max-w-2xl py-4 sm:py-24 lg:max-w-full lg:py-16 ">
-        <div className="mt-6 grid  max-sm:grid-cols-2 max-xl:grid-cols-3 xl:grid-cols-4 lg:pl-20 xl:pl-0 2xl:grid-cols-5 gap-x-20 gap-y-4 ">
+        <div className="mt-6 grid  max-sm:grid-cols-2 max-xl:grid-cols-3 xl:grid-cols-5 lg:pl-20 xl:pl-0 2xl:grid-cols-5 gap-x-20 gap-y-4 ">
             {callouts.map((callout) => (
               <div key={callout.name} className="group relative flex flex-col gap-y-0 justify-center items-center">
                 <div

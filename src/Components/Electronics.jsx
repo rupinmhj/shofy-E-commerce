@@ -1,85 +1,124 @@
-import React from 'react'
+import React, { useState } from "react";
 import headphoneWireless from "../assets/headphone-wireless.png";
+import headphoneWireless2 from "../assets/headphonewireless2.png";
+import headphoneWireless3 from "../assets/headphone-wireless3.png";
 import headphoneMic from "../assets/headphone-mic.png";
+import headphoneMic2 from "../assets/headphoneMic2.png";
+import headphoneMic3 from "../assets/headphoneMic3.png";
 import headphoneGaming from "../assets/headphone-gaming.png";
+import headphoneGaming2 from "../assets/headphoneGaming2.png";
+import headphoneGaming3 from "../assets/headphoneGaming3.png";
 import mobilegalaxy from "../assets/mobile-galaxy.png";
+import mobilegalaxy2 from "../assets/mobileGalaxy2.png";
+import mobilegalaxy3 from "../assets/mobile-galaxy3.png";
 import ipad from "../assets/ipad.png";
 import iphone from "../assets/mobile-iphone.png";
-import gadgetGirl from "../assets/gadget-girl.png"
-import { FaArrowRightLong } from "react-icons/fa6";
-import { FiShoppingCart } from "react-icons/fi";
-import { FiEye } from "react-icons/fi";
-import { FiHeart } from "react-icons/fi";
+import iphone2 from "../assets/iphone2.png";
+import iphone3 from "../assets/iphone3.png";
+import gadgetGirl from "../assets/gadget-girl.png";
 
-// for swipe slider
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { FaArrowRightLong } from "react-icons/fa6";
+import { FiShoppingCart, FiEye, FiHeart } from "react-icons/fi";
+
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+import ProductPreview from "./ProductPreview";
+
 const products = [
   {
     id: 1,
-    product_catagory: "Headphone",
+    product_category: "Headphone",
     name: "Headphones Wireless",
     href: "#",
     price: "$48",
     imageSrc: headphoneWireless,
+    imageSrc2: headphoneWireless2,
+    imageSrc3: headphoneWireless3,
+    colors: ["#4265a5", "#f3c2d7", "#cd286a"],
     rating: 4,
+    description:
+      "Experience freedom with these wireless headphones, offering clear sound and a long-lasting battery.",
   },
   {
     id: 2,
-    product_catagory: "Headphone",
+    product_category: "Headphone",
     name: "Headphones With Mic",
     href: "#",
     price: "$48",
     imageSrc: headphoneMic,
+    imageSrc2: headphoneMic2,
+    imageSrc3: headphoneMic3,
     rating: 4,
+    description:
+      "Perfect for calls and meetings, these headphones come with a built-in mic and noise isolation.",
   },
   {
     id: 3,
-    product_catagory: "Headphone",
+    product_category: "Headphone",
     name: "Gaming Headphones",
     href: "#",
     price: "$48",
     imageSrc: headphoneGaming,
+    imageSrc2: headphoneGaming2,
+    imageSrc3: headphoneGaming3,
     rating: 3,
+    description:
+      "Immersive gaming experience with surround sound and an adjustable mic for communication.",
   },
   {
     id: 4,
-    product_catagory: "Mobile",
-    name: "Ipad",
-    href: "",
+    product_category: "Mobile",
+    name: "iPad",
+    href: "#",
     price: "$840",
     imageSrc: ipad,
+    imageSrc2: ipad,
+    imageSrc3: ipad,
     rating: 4,
+    description:
+      "Sleek and powerful, the iPad is your all-in-one solution for work, creativity, and entertainment.",
   },
   {
     id: 5,
-    product_catagory: "Mobile ",
+    product_category: "Mobile",
     name: "Samsung Galaxy",
     href: "#",
     price: "$48",
     imageSrc: mobilegalaxy,
+    imageSrc2: mobilegalaxy2,
+    imageSrc3: mobilegalaxy3,
     rating: 4,
+    description:
+      "A stylish and reliable smartphone with a vibrant display and impressive performance.",
   },
   {
     id: 6,
-    product_catagory: "Mobile",
-    name: "Iphone 12 Pro",
+    product_category: "Mobile",
+    name: "iPhone 12 Pro",
     href: "#",
     price: "$48",
     imageSrc: iphone,
+    imageSrc2: iphone2,
+    imageSrc3: iphone3,
     rating: 4,
+    description:
+      "Capture stunning photos and enjoy blazing-fast performance with the iPhone 12 Pro.",
   },
- 
-
 ];
+
 const Electronics = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   return (
-    <div className=' flex flex-row justify-between lg:my-20 lg:mx-32 max-xl:flex-col max-xl:px-[100px] mb-5 max-xl:mt-14'>
-        <div className="flex   xl:w-[33%] flex-col xl:h-[42rem] sticky xl:top-[6rem] ">
-            <div className="flex border-2 border-pink-500 rounded-lg m-0 w-full h-[349.4px] justify-between relative overflow-hidden">
+    <div className="flex flex-row justify-between lg:my-20 lg:mx-32 max-xl:flex-col max-xl:px-[100px] mb-5 max-xl:mt-14">
+      <div className="flex flex-col xl:w-[33%] xl:h-[42rem] sticky xl:top-[6rem]">
+        {/* Left Card */}
+        <div className="flex border-2 border-pink-500 rounded-lg m-0 w-full h-[349.4px] justify-between relative overflow-hidden">
                     <div className='m-10'>
                         <h2 className='font-roboto text-custBlack font-semibold text-[20px] leading-[24px] py-0'>Electronics</h2>
                         <h2 className='font-roboto text-custBlack text-[20px] font-semibold leading-[24px] py-0'>Gadget</h2>
@@ -102,96 +141,93 @@ const Electronics = () => {
                         <img src={gadgetGirl} className=' absolute mt-10 right-[-8px] bottom-0' alt="" />
                     </div>
             </div>
-            
-            <Swiper
-  modules={[Navigation, Pagination]}
+
+        {/* Swiper Section */}
+        <Swiper
+          modules={[Navigation, Pagination]}
           spaceBetween={50}
           slidesPerView={1}
-          // navigation={true} // Enable navigation without needing to manually define buttons
           pagination={{ clickable: true }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-           className="w-full max-w-[1200px] mx-auto "
->
-  <SwiperSlide className="">
-    <div className='bg-gradient-to-r from-pink-400 via-red-500 to-yellow-500 flex max-h-60 justify-between rounded-xl mt-4 group '>
-      <div className="flex flex-col text-start px-10 py-10 hover:motion-preset-rebound-down motion-delay-[250ms]">
-        <h2 className="leading-[26px] font-roboto text-[14px] text-white ">
-          Sale 30% off 
-        </h2>
-        <span className="font-roboto text-[24px] font-bold leading-[29px]  text-white ">
-          Wireless
-        </span>
-        <span className="font-roboto text-[24px] font-bold leading-[29px] p-0 text-white ">
-          Sony Hyperfx 
-        </span>
-        
-      </div>
-      <div className="overflow-hidden relative">
-        <img
-          src={headphoneWireless}
-          className="object-cover w-full h-full mask mask-squircle group-hover:scale-125 transition-transform "
-          alt="Phone"
-        />
-      </div>
-    </div>
-  </SwiperSlide>
-
- 
-  <SwiperSlide className="">
-    <div className='bg-gradient-to-r from-pink-400 via-red-500 to-yellow-500 flex max-h-60 justify-between rounded-xl mt-4 group '>
-      <div className="flex flex-col text-start px-10 py-10 hover:motion-preset-rebound-down hover:motion-delay-[250ms] transition-all ">
-        <h2 className="leading-[26px] font-roboto text-[14px] text-white">
-          Sale 10% off 
-        </h2>
-        <span className="font-roboto text-[24px] font-bold leading-[29px]  text-white ">
-          Iphone12
-        </span>
-        <span className="ffont-roboto text-[24px] font-bold leading-[29px]  text-white">
-          Pro 
-        </span>
-      </div>
-      <div className="overflow-hidden relative">
-        <img
-          src={iphone}
-          className="object-cover  w-full h-full  group-hover:scale-125 transition-transform duration-200"
-          alt="Phone"
-        />
-      </div>
-    </div>
-  </SwiperSlide>
-</Swiper>
-
-
-        </div>
-        <div className="bg-white xl:w-[65%]   ">
-        <div className="  px-4 xl:py-0 sm:px-6 sm:py-4  lg:px-2 ">
-          {/* <h2 className="sr-only">Products</h2> */}
-          
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3  xl:gap-x-8 ">
-            {products.map((product) => (
-              <a
-              key={product.id}
-              href={product.href}
-              className="group border border-gray-200 flex flex-col justify-start transition-all hover:shadow-lg hover:border-gray-300"
-            >
-              <div className="relative">
+          className="w-full max-w-[1200px] mx-auto mt-6"
+        >
+          <SwiperSlide>
+            <div className="bg-gradient-to-r from-pink-400 via-red-500 to-yellow-500 flex max-h-60 justify-between rounded-xl group">
+              <div className="flex flex-col px-10 py-10 text-start">
+                <h2 className="text-[14px] leading-[20px] font-medium text-white">
+                  Sale 30% off
+                </h2>
+                <span className="text-[22px] font-bold text-white leading-[28px]">
+                  Wireless
+                </span>
+                <span className="text-[22px] font-bold text-white leading-[28px]">
+                  Sony Hyperfx
+                </span>
+              </div>
+              <div className="overflow-hidden relative">
                 <img
-                  src={product.imageSrc}
-                  className="aspect-square w-full rounded-lg object-cover transition-transform duration-200 transform group-hover:scale-105 hover:opacity-75"
+                  src={headphoneWireless}
+                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
+                  alt="Wireless Headphones"
                 />
-                 <div className="absolute  translate-x-0 group-hover:translate-x-[-10px] flex-col inset-0 bg-white bg-opacity-30 flex items-end pr-4 justify-center gap-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-      <button className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-custBlue hover:text-white transition-all">
-        <FiShoppingCart size={18} />
-      </button>
-      <button className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-custBlue hover:text-white transition-all">
-        <FiEye size={18} />
-      </button>
-      <button className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-custBlue hover:text-white transition-all">
-        <FiHeart size={18} />
-      </button>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="bg-gradient-to-r from-pink-400 via-red-500 to-yellow-500 flex max-h-60 justify-between rounded-xl group">
+              <div className="flex flex-col px-10 py-10 text-start">
+                <h2 className="text-[14px] leading-[20px] font-medium text-white">
+                  Sale 10% off
+                </h2>
+                <span className="text-[22px] font-bold text-white leading-[28px]">
+                  iPhone12
+                </span>
+                <span className="text-[22px] font-bold text-white leading-[28px]">
+                  Pro
+                </span>
+              </div>
+              <div className="overflow-hidden relative">
+                <img
+                  src={iphone}
+                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
+                  alt="iPhone 12 Pro"
+                />
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
-    </div>
+
+      {/* Right Side Products */}
+      <div className="bg-white xl:w-[65%]">
+        <div className="px-4 xl:py-0 sm:px-6 sm:py-4 lg:px-2">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="group border border-gray-200 flex flex-col justify-start hover:shadow-lg hover:border-gray-300 transition-all"
+              >
+                <div className="relative">
+                  <img
+                    src={product.imageSrc}
+                    alt={product.name}
+                    className="aspect-square w-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105 hover:opacity-75"
+                  />
+                  <div className="absolute inset-0 bg-white bg-opacity-30 flex items-end justify-center pr-4 gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 flex-col">
+                    <button className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-custBlue hover:text-white transition-all">
+                      <FiShoppingCart size={18} />
+                    </button>
+                    <button
+                      onClick={() => setSelectedProduct(product)}
+                      className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-custBlue hover:text-white transition-all"
+                    >
+                      <FiEye size={18} />
+                    </button>
+                    <button className="bg-white text-gray-800 p-2 rounded-sm shadow hover:bg-custBlue hover:text-white transition-all">
+                      <FiHeart size={18} />
+                    </button>
+                  </div>
+                </div>
                 <div className="border-t border-gray-200 pl-6 pb-5">
                 <h3 className="mt-4 text-[0.75rem] hover:text-custBlue cursor-pointer leading-[1.625rem] font-bold text-left text-gray-500 ">
                   {product.product_catagory}
@@ -217,16 +253,21 @@ const Electronics = () => {
                   {product.price}
                 </p>
                 </div>
-                
-              </a>
+              </div>
             ))}
           </div>
         </div>
       </div>
-        
-      
-    </div>
-  )
-}
 
-export default Electronics
+      {/* Product Preview Popup */}
+      {selectedProduct && (
+        <ProductPreview
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
+    </div>
+  );
+};
+
+export default Electronics;
